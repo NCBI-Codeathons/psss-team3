@@ -1,5 +1,6 @@
-needle: ${projectDir}/data/needle.txt
+needle: /Users/mac/share/codeathon/BenchmarkFilesTommy/msas/*
 
 # Note that this would normally include many files, splitting the search space
 # up for parallelization.
-haystack: ${projectDir}/data/haystack.txt
+haystack: /Users/mac/share/codeathon/BenchmarkFilesTommy/transmarkORFandDNA.fa
+haystack_db: /Users/mac/share/codeathon/BenchmarkFilesTommy/transmarkORFandDNA.fa

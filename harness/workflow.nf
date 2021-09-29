@@ -1,9 +1,10 @@
 #!/usr/bin/env nextflow
 
-needle = Channel.value( params.needle )
+needle = Channel.fromPath( params.needle )
 
 // This would normally be a queue channel
 haystack = Channel.value( params.haystack )
+haystack_db = Channel.value( params.haystack_db )
 
 process run_tool {
     input:
