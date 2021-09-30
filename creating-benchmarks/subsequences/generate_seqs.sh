@@ -26,12 +26,22 @@ for i in *.frame3.split/*; do seqkit sample -n 6 -s $RANDOM $i > $i.sample; done
 
 echo "CONCATENATING FILES INTO SINGLE OUTPUT"
 for i in *.split/*.sample; do cat $i >> full_file.fa; done;
-seqkit seq -g -m 3 full_file.fa > $2  # filter out any empty sub-sequences
+seqkit seq -g -m 3 full_file.fa > filtered_file.fa  # filter out any empty sub-sequences
 
-echo "SORTING OUTPUT"
-seqkit rmdup -n $2 | seqkit sort -n > $2.o
 
-../hmmer-3.3.1/easel/miniapps/esl-shuffle $2.o > $2.shuffled.o
+seqkit rmdup -n filtered_file.fa | seqkit shuffle > filtered_shuffled.fa
+seqkit split -p 2 filtered_shuffled.fa  # this will create filtered_shuffled.fa.split/filtered_shuffled.part_001.fa and filtered_shuffled.fa.split/filtered_shuffled.part_002.fa
+
+# reverse complement part 002
+seqkit seq filtered_shuffled.fa.split/filtered_shuffled.part_002.fa -t DNA -r -p > filtered_shuffled.fa.split/filtered_shuffled.part_002.fa.rc
+sed 's/FRAME1/FRAME1rc/g' filtered_shuffled.fa.split/filtered_shuffled.part_002.fa.rc | sed 's/FRAME2/FRAME2rc/g' | sed 's/FRAME3/FRAME3rc/g' > filtered_shuffled.fa.split/filtered_shuffled.part_002.fa.rc.final
+
+echo "CONCAT AND SORTING OUTPUT"
+cat filtered_shuffled.fa.split/filtered_shuffled.part_001.fa filtered_shuffled.fa.split/filtered_shuffled.part_002.fa.rc.final | seqkit sort -n > $2.o
+
+#seqkit rmdup -n $2 | seqkit sort -n > $2.o
+#../hmmer-3.3.1/easel/miniapps/esl-shuffle $2.o > $2.shuffled.o
 
 rm *.frame*
 rm -r *.frame* 
+rm -r *.split*
