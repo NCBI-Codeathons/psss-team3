@@ -1,6 +1,3 @@
-needle: /Users/mac/share/codeathon/BenchmarkFilesTommy/msas/*
-
-# Note that this would normally include many files, splitting the search space
-# up for parallelization.
-haystack: /Users/mac/share/codeathon/BenchmarkFilesTommy/transmarkORFandDNA.fa
-haystack_db: /Users/mac/share/codeathon/BenchmarkFilesTommy/transmarkORFandDNA.fa
+dna_file: ${projectDir}/fixtures/dna_msas.sto
+protein_file: ${projectDir}/fixtures/protein_msas.sto
+target_file: ${projectDir}/fixtures/target.fa
