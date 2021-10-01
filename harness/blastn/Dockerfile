@@ -19,5 +19,5 @@ RUN make && make install
 WORKDIR easel
 RUN make install
 
-COPY preprocess.sh /bin/prepare_data
-COPY wrapper.sh /bin/run_tool
+COPY prepare_data.sh /bin/prepare_data
+COPY run_tool.sh /bin/run_tool
