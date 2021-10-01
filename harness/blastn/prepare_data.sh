@@ -6,11 +6,7 @@
 
 set -e
 
-# outputs (in order):
-# e-values
-# score
-# start_pos of hit in chromosome
-DNA_QUERY=$1
+NA_QUERY=$1
 AA_QUERY=$2
 TARGET=$3
 
