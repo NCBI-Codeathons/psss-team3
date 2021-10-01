@@ -34,6 +34,8 @@ TBD
 
 ### Benchmark Creation Script
 
+**Script Pseudocode**
+
 The benchmark creation script relies on seqkit for sequence manipulation. It works as follows:
 1. Read in the .fa input file
 2. Simulate multiple reading frames using `seqkit subseq` by generating subsequences that are offset by 1 in the start position (1:-1, 2:-1, 3:-1).
@@ -45,7 +47,7 @@ The benchmark creation script relies on seqkit for sequence manipulation. It wor
 
 This script can be applied to the positive sequences as well as the decoy sequences to generate simulated sub-sequences for both positive and decoys.
 
-Running the script:
+**Running the script**
 ```
 bash generate_seqs.sh [input file] [output file] [AA seq length]
 
@@ -61,6 +63,7 @@ bash generate_seqs.sh transmarkORFandDNA.pfa.orf output_150nt_50aa_transmarkORFa
 
 ### Protocol for downstream processing
 
+**Running HMMER** 
 To run HMMER on the output dataset, you must use `esl-translate` to generate translated protein sequences from the benchmark.
 
 ```
@@ -76,6 +79,7 @@ hmmsearch --tblout output_table hmm1 output_seqs.o.esl-trans.pfa > output
 # TODO: follow-up: implement supporting script to analyze the output_table
 ```
 
+**Running BLASTx**
 To run BLASTx on the output dataset, you need just the nucleotide sequences directly from the benchmark creation script.  **TODO: add more detail here.**
 
 
