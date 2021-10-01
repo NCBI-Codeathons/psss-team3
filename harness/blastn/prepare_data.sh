@@ -6,7 +6,7 @@
 
 set -e
 
-NA_QUERY=$1
+DNA_QUERY=$1
 AA_QUERY=$2
 TARGET=$3
 
