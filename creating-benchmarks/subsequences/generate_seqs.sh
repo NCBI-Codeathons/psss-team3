@@ -1,5 +1,7 @@
 #!/bin/bash
 
+start_time=`date`
+
 rm $2
 rm $2.o
 
@@ -45,3 +47,10 @@ cat filtered_shuffled.fa.split/filtered_shuffled.part_001.fa filtered_shuffled.f
 rm *.frame*
 rm -r *.frame* 
 rm -r *.split*
+rm full_file.fa
+rm filtered_*.fa
+rm -r filtered_shuffled.fa.split
+
+
+echo $start_time
+date
