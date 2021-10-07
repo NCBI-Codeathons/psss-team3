@@ -29,8 +29,23 @@ Choices for benchmarks are endless. Given the time contraints caused by the dura
 * [annotating read that resist assembly](benchmarks/unassembled)
 * [incomplete protein domains (abbreviated contigs)](benchmarks/subsequences)
 
+Two wiki pages that may help in setting up Docker and/or cloud environments are: 
+[AWS with Nextflow](wiki/AWS-with-NextFlow) and [Nextflow with Docker](wiki/Nextflow-and-Docker-guides)
+
+
+## Team
+
+| Name                | Affiliation  	|
+|---                  |---	|
+| Travis Wheeler  	  | University of Montana Missoula, Department of Computer Science   	|
+| Thomas Biondi       | Los Alamos National Laboratory, Biosciences ("B-10")  	          |
+| Thomas Colligan	    | University of Montana Missoula, Department of Computer Science    |
+| Katrina Kalantar	  | Chan Zuckerberg Initiative |
+| Genevieve Krause	  | University of Montana Missoula, Department of Computer Science   |
+| Taylor Reiter	      | University of California, Davis, Department of Population Health and Reproduction, School of Veterinary Medicine |
+| George Lesica       | University of Montana Missoula, Department of Computer Science |
+| Artem Babaian	      | University of Cambridge, Department of Hematology |
 
 ## Inside baseball
 
-During the codeathon, we captured some [wiki pages](https://github.com/NCBI-Codeathons/psss-team3-hard-annotation/wiki) with guidelines and tutorials. Two that may help in setting up Docker and/or cloud environments are: 
-[AWS with Nextflow](wiki/AWS-with-NextFlow) and [Nextflow with Docker](wiki/Nextflow-and-Docker-guides)
+During the codeathon, we captured some [wiki pages](https://github.com/NCBI-Codeathons/psss-team3-hard-annotation/wiki) with guidelines and tutorials. 
