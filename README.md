@@ -24,7 +24,7 @@ During (and shortly after) this codeathon, we developed a pilot implementation o
 
 ## Benchmark datasets
 
-Choices for benchmarks are endless. Given the time contraints caused by the duration of the codeathon, we settled on three benchmarks that would be (i) relatively simple to generate, (ii) probably useful for developers wishing to develop tools that annotate hard-to-label inputs, and (iii) lay the groundwork for other benchmarks. We capture each in folders within this repository (if links are not working, they will be live shortly):
+Choices for benchmarks are endless. Given the time constraints caused by the duration of the codeathon, we settled on three benchmarks that would be (i) relatively simple to generate, (ii) probably useful for developers wishing to develop tools that annotate hard-to-label inputs, and (iii) lay the groundwork for other benchmarks. We capture each in folders within this repository (if links are not working, they will be live shortly):
 * [protein domains embedded within DNA decoys](benchmarks/transmark)
 * [annotating read that resist assembly](benchmarks/unassembled)
 * [incomplete protein domains (abbreviated contigs)](benchmarks/subsequences)
