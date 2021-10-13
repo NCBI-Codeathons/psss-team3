@@ -5,8 +5,8 @@
 ## Working Goals
 
 + [x] Develop a script to generate protein subsequences
-    + [ ] Use the scripts to create first-pass benchmark from the transmark positive sequences (.pfa)
-    + [ ] Use the scripts to create a first-pass set of decoys based on the outputs from transmark 
+    + [x] Use the scripts to create first-pass benchmark from the transmark positive sequences (.pfa)
+    + [x] Use the scripts to create a first-pass set of decoys based on the outputs from transmark 
 + [ ] Document a protocol for running 1-2 existing protein annotation tools against the generated dataset
     + [x] HMMER
     + [ ] BLASTx
@@ -59,7 +59,10 @@ bash generate_seqs.sh transmarkORFandDNA.pfa.orf output_150nt_50aa_transmarkORFa
 
 ```
 
-**Note:** this takes ~25 minutes to generate a single sub-sampled dataset for the full transmark dataset.
+**Notes:** 
++ this takes approx 25 minutes to generate a single sub-sampled dataset for the full transmark dataset.
++ when running the script on the decoy sequences, the .fa headers are formed in a way that is incompatible with the logic in the script. To account for this, make sure the .fa headers do not contain spaces, and thus are not unique: `less transmarkORFandDNA.pfa.orf | seqkit replace -p "decoy\sacc\s" -r "decoy-acc-" > transmarkORFandDNA.pfa.orf.unique`
+
 
 ### Protocol for downstream processing
 
