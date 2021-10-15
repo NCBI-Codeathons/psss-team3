@@ -8,14 +8,17 @@ rm $2.o
 AA_LEN=30
 NT_LEN="$(($AA_LEN * 3))"
 
+# address misnames in the decoy sequences file...
+less $1 | seqkit replace -p "decoy\sacc\s" -r "decoy-acc-" > $1.temp
+
 echo "CREATING SLIDING WINDOW FILES PER FRAME"
 # sliding -s 3 is to keep it in-frame; could alternatively do -s 6|9|12 to spread out the sliding window a bit and reduce size of intermediate files
 # this appears to be frame 1
-seqkit subseq -r 1:-1 $1 | seqkit sliding -s 30 -W $NT_LEN | sed -E "s|^>(.+)$|>\1 FRAME1|" | seqkit replace -p "\_" -r ' ' > $1.frame1
+seqkit subseq -r 1:-1 $1.temp | seqkit sliding -s 30 -W $NT_LEN | sed -E "s|^>(.+)$|>\1 FRAME1|" | seqkit replace -p "\_" -r ' ' > $1.frame1
 # this appears to be frame 3
-seqkit subseq -r 2:-1 $1 | seqkit sliding -s 30 -W $NT_LEN | sed -E "s|^>(.+)$|>\1 FRAME3|" | seqkit replace -p "\_" -r ' ' > $1.frame3
+seqkit subseq -r 2:-1 $1.temp | seqkit sliding -s 30 -W $NT_LEN | sed -E "s|^>(.+)$|>\1 FRAME3|" | seqkit replace -p "\_" -r ' ' > $1.frame3
 # this appears to be frame 2
-seqkit subseq -r 3:-1 $1 | seqkit sliding -s 30 -W $NT_LEN | sed -E "s|^>(.+)$|>\1 FRAME2|" | seqkit replace -p "\_" -r ' ' > $1.frame2
+seqkit subseq -r 3:-1 $1.temp | seqkit sliding -s 30 -W $NT_LEN | sed -E "s|^>(.+)$|>\1 FRAME2|" | seqkit replace -p "\_" -r ' ' > $1.frame2
 
 echo "SPLITTING FRAME FILES"
 for i in `ls *.frame*`; do seqkit split $i -i --force; done;
